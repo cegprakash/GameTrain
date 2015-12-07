@@ -70,6 +70,10 @@ public class ApplicationMain {
 		submitButton.click();		
 	}
 	
+	static void selectThatkal(){
+		driver.findElement(By.xpath("//td[input[@name='quota']][2]/input")).click();
+	}
+	
 	static void selectTrainAndCoach(){
 		WebElement trainTable = driver.findElement(By.id("avlAndFareForm:trainbtwnstns:tb"));
 		WebElement trainRow = trainTable.findElement(By.xpath(".//tr[td//text()[starts-with(., '"+trainNo+"')]]"));
@@ -152,6 +156,14 @@ public class ApplicationMain {
 			System.out.println("RESOLVE ISSUE WITHIN 8 seconds");
 			Thread.sleep(8000);			
 			searchTrains();
+		}
+		try{
+			selectThatkal();
+		}
+		catch(Exception e){
+			System.out.println("RESOLVE ISSUE WITHIN 8 seconds");
+			Thread.sleep(8000);			
+			selectThatkal();
 		}
 		try{
 			selectTrainAndCoach();
